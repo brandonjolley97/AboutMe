@@ -84,8 +84,6 @@ public class StupidMorningActivity extends AppCompatActivity
         {
             basicText.setVisibility(View.VISIBLE);
         }
-
-        basicText.setVisibility(View.GONE);
     }
 
     private void setupListeners()
@@ -101,7 +99,7 @@ public class StupidMorningActivity extends AppCompatActivity
             }
         });
 
-        
+
 
     }
 }
