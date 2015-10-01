@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.RelativeLayout;
 import android.view.View;
 import android.content.Intent;
+import android.graphics.Color;
 
 
 public class StupidMorningActivity extends AppCompatActivity
@@ -26,8 +27,8 @@ public class StupidMorningActivity extends AppCompatActivity
         setContentView(R.layout.activity_stupid_morning);
 
         background = (RelativeLayout) findViewById(R.id.backgroundLayout);
-        basicText = (TextView) findViewById(R.id.sillyText);
-        colorChangeButton = (Button) findViewById(R.id.sillyButton);
+        basicText = (TextView) findViewById(R.id.textView);
+        colorChangeButton = (Button) findViewById(R.id.changeColorButton);
         swapScreenButton = (Button) findViewById(R.id.swapScreenButton);
 
         setupListeners();
@@ -60,7 +61,17 @@ public class StupidMorningActivity extends AppCompatActivity
         int greenColor;
         int blueColor;
 
-        redColor = (int)
+        redColor = (int) (Math.random() * 256);
+        greenColor = (int) (Math.random() * 256);
+        blueColor = (int) (Math.random() * 256);
+
+        background.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
+
+        redColor = (int) (Math.random() * 256);
+        greenColor = (int) (Math.random() * 256);
+        blueColor = (int) (Math.random() * 256);
+
+        colorChangeButton.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
     }
 
     private void changeVisibility()
@@ -81,22 +92,16 @@ public class StupidMorningActivity extends AppCompatActivity
     {
         colorChangeButton.setOnClickListener(new View.OnClickListener()
         {
+            @Override
             public void onClick(View buttonView)
             {
                 //This is where the action happens!
                 changeBackgroundColor();
-                ChangeVisibility();
+                changeVisibility();
             }
         });
 
-        swapScreenButton.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View buttonView)
-            {
-                Intent myIntent = new Intent(buttonView.getContext(), RunningActivity.class);
-                startActivityForResult(myIntent, 0);
-            }
-        });
+        
 
     }
 }
